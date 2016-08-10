@@ -1,0 +1,24 @@
+Searching 517 files for "O.S"
+
+/Users/alejandroguillan/Desktop/ialesos/application/views/clientes/clientes.php:
+  104    <div class="modal-body">
+  105      <input type="hidden" id="idCliente" name="id" value="" />
+  106:     <h5 style="text-align: center">¿Realmente deseas eliminar este cliente y los datos asociados con él (O.S, ventas, ingresos)?</h5>
+  107    </div>
+  108    <div class="modal-footer">
+
+/Users/alejandroguillan/Desktop/ialesos/application/views/conecte/os.php:
+   28  
+   29          <tr>
+   30:             <td colspan="6">Ninguna O.S Registrada</td>
+   31          </tr>
+   32      </tbody>
+
+/Users/alejandroguillan/Desktop/ialesos/application/views/mapos/painel.php:
+  199          
+  200          <div class="widget-box">
+  201:             <div class="widget-title"><span class="icon"><i class="icon-signal"></i></span><h5>Estadísticas de O.S</h5></div>
+  202              <div class="widget-content">
+  203                  <div class="row-fluid">
+
+3 matches across 3 files
