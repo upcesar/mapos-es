@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://tudominio';
+$config['base_url']	= 'http://sistema';
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +26,8 @@ $config['base_url']	= 'http://tudominio';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+//$config['index_page'] = 'index.php';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------

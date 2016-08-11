@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `u938981721_ale`
 --
+CREATE DATABASE IF NOT EXISTS mapos;
+USE mapos;
 
 -- --------------------------------------------------------
 

@@ -4,14 +4,17 @@ export DEBIAN_FRONTEND=noninteractive
 sudo aptitude update -q
 
 # Force a blank root password for mysql
-echo "mysql-server mysql-server/root_password password " | debconf-set-selections
-echo "mysql-server mysql-server/root_password_again password " | debconf-set-selections
+echo "mysql-server mysql-server/root_password password" | debconf-set-selections
+echo "mysql-server mysql-server/root_password_again password" | debconf-set-selections
 
 # Install mysql, nginx, php5-fpm
 sudo aptitude install -q -y -f mysql-server mysql-client nginx php5-fpm
 
 # Install commonly used php packages
 sudo aptitude install -q -y -f php5-mysql php5-curl php5-gd php5-intl php-pear php5-imagick php5-imap php5-mcrypt php5-memcached php5-ming php5-ps php5-pspell php5-recode php5-snmp php5-sqlite php5-tidy php5-xmlrpc php5-xsl php5-xcache
+
+# Execute database script
+mysql -h localhost -u root < /home/vagrant/code/BasedeDatos/banco.sql
 
 sudo rm /etc/nginx/sites-available/default
 sudo touch /etc/nginx/sites-available/default
@@ -20,18 +23,19 @@ sudo cat >> /etc/nginx/sites-available/default <<'EOF'
 server {
   listen   80;
 
-  root /usr/share/nginx/html;
+  # root /usr/share/nginx/html;
+  root /home/vagrant/code;
   index index.php index.html index.htm;
 
   # Make site accessible from http://localhost/
-  server_name _;
+  server_name mapos-es;
 
   location / {
     # First attempt to serve request as file, then
     # as directory, then fall back to index.html
-    try_files $uri $uri/ /index.html;
+    try_files $uri $uri/ /index.php?$query_string;
   }
-
+  
   location /doc/ {
     alias /usr/share/doc/;
     autoindex on;
